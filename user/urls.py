@@ -17,6 +17,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('login', Authentication.login),
-    path('signup/', Authentication.signup),
+    path('signup', Authentication.signup),
     path('test_token', Authentication.test_token),
 ]
