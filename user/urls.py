@@ -11,6 +11,8 @@ router = routers.DefaultRouter()
 
 # define the router path and viewset to be used
 router.register(r'user', UserViewSet)
+router.register(r'book', BookViewSet)
+router.register(r'book-genres', BookGenresViewSet)
 
 # specify URL Path for rest_framework
 urlpatterns = [

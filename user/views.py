@@ -11,8 +11,8 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
 # import local data
-from .serializers import UserSerializer
-from .models import User
+from .serializers import UserSerializer, BookSerializer, BookGenresSerializer
+from .models import User, BookGenres, Book
 
 # create a viewset
 class UserViewSet(viewsets.ModelViewSet):
@@ -21,6 +21,20 @@ class UserViewSet(viewsets.ModelViewSet):
 
     # specify serializer to be used
     serializer_class = UserSerializer
+
+class BookViewSet(viewsets.ModelViewSet):
+    # define queryset
+    queryset = Book.objects.all()
+
+    # specify serializer to be used
+    serializer_class = BookSerializer
+
+class BookGenresViewSet(viewsets.ModelViewSet):
+    # define queryset
+    queryset = BookGenres.objects.all()
+
+    # specify serializer to be used
+    serializer_class = BookGenresSerializer
 
 class Authentication():
     @api_view(['POST'])
