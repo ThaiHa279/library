@@ -1,5 +1,5 @@
 # basic URL Configurations
-from django.urls import include, path, re_path
+from django.urls import include, path
 # import routers
 from rest_framework import routers
 
@@ -11,8 +11,7 @@ router = routers.DefaultRouter()
 
 # define the router path and viewset to be used
 router.register(r'user', UserViewSet)
-router.register(r'book', BookViewSet)
-router.register(r'book-genres', BookGenresViewSet)
+router.register(r'history', HistoryViewSet)
 
 # specify URL Path for rest_framework
 urlpatterns = [
@@ -21,4 +20,7 @@ urlpatterns = [
     path('login', Authentication.login),
     path('signup', Authentication.signup),
     path('test_token', Authentication.test_token),
+    path('view_history', HistoryQuery.view),
+    path('cal_fee', HistoryQuery.late_fee),
+    path('borrow', HistoryQuery.borrow),
 ]
